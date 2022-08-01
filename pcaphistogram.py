@@ -10,13 +10,13 @@ def processpacket(packet):
 
     data = ''
     if (TCP in packet):
-        data = str(packet[TCP].payload)
+        data = bytes(packet[TCP].payload)
     elif (UDP in packet):
-        data = str(packet[UDP].payload)
+        data = bytes(packet[UDP].payload)
 
     if (data != ''):
         for byte in data:
-            databytes[ord(byte)] += 1
+            databytes[byte] += 1
 
 
 
